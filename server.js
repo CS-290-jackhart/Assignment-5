@@ -1,9 +1,6 @@
 /*
- * Write your routing code in this file.  Make sure to add your name and
- * @oregonstate.edu email address below.
- *
- * Name:
- * Email:
+ * Name: Jackson Hart
+ * Email: hartjack@oregonstate.edu
  */
 
 var path = require('path');

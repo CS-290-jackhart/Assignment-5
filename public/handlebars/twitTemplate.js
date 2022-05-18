@@ -1,0 +1,17 @@
+(function() {
+  var template = Handlebars.template, templates = Handlebars.templates = Handlebars.templates || {};
+templates['twit'] = template({"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3="function", alias4=container.escapeExpression, lookupProperty = container.lookupProperty || function(parent, propertyName) {
+        if (Object.prototype.hasOwnProperty.call(parent, propertyName)) {
+          return parent[propertyName];
+        }
+        return undefined
+    };
+
+  return "<article class=\"twit\">\n    <div class=\"twit-icon\">\n        <i class=\"fa fa-bullhorn\"></i>\n    </div>\n    <div class=\"twit-content\">\n        <p class=\"twit-text\">\n            "
+    + alias4(((helper = (helper = lookupProperty(helpers,"twit_text") || (depth0 != null ? lookupProperty(depth0,"twit_text") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"twit_text","hash":{},"data":data,"loc":{"start":{"line":7,"column":12},"end":{"line":7,"column":25}}}) : helper)))
+    + "\n        </p>\n        <p class=\"twit-author\">\n            <a href=\"#\">"
+    + alias4(((helper = (helper = lookupProperty(helpers,"twit_author") || (depth0 != null ? lookupProperty(depth0,"twit_author") : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"twit_author","hash":{},"data":data,"loc":{"start":{"line":10,"column":24},"end":{"line":10,"column":39}}}) : helper)))
+    + "</a>\n        </p>\n    </div>\n</article>";
+},"useData":true});
+})();
