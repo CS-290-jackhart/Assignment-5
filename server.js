@@ -11,30 +11,30 @@ var twitData = require('./twitData.json')
 
 var app = express();
 
-app.engine('handlebars', exphbs.engine({ defaultLayout: null }))
+app.engine('handlebars', exphbs.engine({ defaultLayout: 'main' }))
 app.set('view engine', 'handlebars')
 
 var port = process.env.PORT || 3000;
 
-app.get('/style.css', (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, 'public', 'style.css'))
-})
-
-app.get('/index.js', (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, 'public', 'index.js'))
-})
-
 app.get('/', (req, res) => {
-  console.log(twitData)
   res.status(200).render('twitPage', {
     twits: twitData
   })
 })
 
+app.get('/twits/:num', (req, res, next) => {
+  var num = Number(req.params.num)
+  if (num >= 0 && num < twitData.length) {
+    res.status(200).render('partials/twit', twitData[num])
+  } else {
+    next()
+  }
+})
+
 app.use(express.static('public'));
 
 app.get('*', function (req, res) {
-  res.status(404).sendFile(path.join(__dirname, 'public', '404.html'));
+  res.status(404).render('404');
 });
 
 app.listen(port, function () {
